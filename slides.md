@@ -181,3 +181,9 @@ ISOs von der [NixOS download Seite](https://nixos.org/download)
 <li class="left fragment">Auch mal ins <a href="https://nixos.org/manual/nixpkgs/stable/index.html">Nixpkgs Manual</a> schauen</li>
 <li class="left fragment"><a href="https://nix.dev/tutorials/ad-hoc-developer-environments">Nix shells</a> anschauen</li>
 <li class="left fragment">Spaß haben und bei Problemen <s>mich</s>die <a href="https://nixos.org/manual/nixos/stable/#preface">Community</a> fragen</li>
+
+---
+
+## CC-Attribution
+
+Logo designed by Tim Cuthbertson (<a href="https://github.com/timbertson">@timbertson</a>)
