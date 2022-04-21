@@ -17,7 +17,7 @@ slideOptions:
 
 <img style="border:unset;background:unset;box-shadow:unset;" src="/media/nixos-hires.png" width="500px" alt="logo" />
 
-# workshop
+# Workshop
 
 ---
 
@@ -43,6 +43,7 @@ slideOptions:
 Nix ist eine "special snowflake"
 
 <div class="fragment">wie auch das Logo zeigt...</div>
+<div class="fragment"><img style="margin-top:1em;border:unset;background:unset;box-shadow:unset;" src="/media/snowflake.png" width="150px" alt="logo" /></div>
 
 ----
 
