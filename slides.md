@@ -15,7 +15,7 @@ slideOptions:
 
 # Willkommen beim
 
-<img style="border:unset;background:unset;box-shadow:unset;" src="./nixos-hires.png" width="500px" alt="logo" />
+<img style="border:unset;background:unset;box-shadow:unset;" src="/media/nixos-hires.png" width="500px" alt="logo" />
 
 # workshop
 
@@ -34,6 +34,7 @@ slideOptions:
     </ul>
   </li>
 </ul>
+<div class="left fragment">In diesem Workshop nur 64Bit "Hardware"</div>
 
 ---
 
@@ -45,7 +46,7 @@ Nix ist eine "special snowflake"
 
 ----
 
-## Begriffe
+### Begriffe
 
 <ul>
   <li class="left fragment">Nix
@@ -62,22 +63,120 @@ Nix ist eine "special snowflake"
   <li class="left fragment">Derivations - "Bauanleitungen"</li>
 </ul>
 
+---
+
+### Tolle Features von Nix
+
 ----
 
-## Tolle Features von Nix
+### Sauberes Dependency-Management
 
-## Reproduzierbarkeit
-
-<li class="left fragment">Alle Files sind kryptographisch verifizierbar</li>
+<ul>
+<li class="left fragment">Mehrere Versionen der gleichen Library</li>
 <li class="left fragment">Dependencies werden gehashed</li>
 <li class="left fragment">...können also klar identifiziert werden</li>
+<li class="left fragment">...sind somit immer "komplett"</li>
+</ul>
+
+----
+
+### Reproduzierbarkeit
+
+<ul>
 <li class="left fragment">Nix ist funktional</li>
+<li class="left fragment">Alle Files sind kryptographisch verifizierbar</li>
+<li class="left fragment">Eine Derivation gibt auf jedem System den gleichen Output</li>
+</ul>
+
+----
+
+### Sprachenunabhängig
+
+Es ist egal ob man
+<ul>
+<li class="left fragment">Python</li>
+<li class="left fragment">C/C++</li>
+<li class="left fragment">Go</li>
+<li class="left fragment">Rust</li>
+<li class="left fragment">Java</li>
+<li class="left fragment">Javascript</li>
+<div class="fragment">oder Sonstiges verwendet</div>
+</ul>
+
+----
+
+### Multi-User Support
+
+<li class="left fragment">Verschiedene (nicht root) User können Software installieren</li>
+<li class="left fragment">Keine Konflikte durch komplette Dependencies</li>
+
+----
+
+### Atomic-Updates und Rollbacks
+
+<li class="left fragment">Einzelne Pakete können geupdated werden</li>
+<li class="left fragment">Und auch wieder downgraded werden</li>
+
+----
+
+### Binary als auch From-Source Package-Management
+
+Es gibt sowohl einen binary cache als auch die Option Pakete from source zu bauen
 
 ---
 
-## Vergleich mit APT
+## NixOS
 
-| Operation          | Ubuntu               | NixOS    | Nix |
-| ----               | -----                | -------- | --- |
-| Paket installieren | sudo apt install vim |          |     |
+Es gibt ein `configuration.nix` file in dem die gesamte Systemkonfiguration festgehalten ist.
 
+----
+
+### Beispiel
+
+```nix
+{ config, pkgs, ... }: {
+  imports = [ ./hardware-configuration.nix ];
+
+  # (for BIOS systems only)
+  boot.loader.grub.device = "/dev/sda";
+
+  environment.systemPackages = with pkgs; [
+    emacs vim
+  ];
+
+  # Enable the OpenSSH server. Duh!
+  services.sshd.enable = true;
+}
+```
+
+----
+
+### Optionen und Packages
+
+Was für Optionen und Packages gibt es?
+
+<div class="fragment">Die findet man unter der <a href="https://search.nixos.org/options">NixOS search</a></div>
+
+---
+
+## Getting Started
+
+----
+
+### Installation
+
+ISOs von der [NixOS download Seite](https://nixos.org/download)
+
+- [minimal](https://channels.nixos.org/nixos-21.11/latest-nixos-minimal-x86_64-linux.iso)
+- [gnome](https://channels.nixos.org/nixos-21.11/latest-nixos-gnome-x86_64-linux.iso)
+- [plasma](https://channels.nixos.org/nixos-21.11/latest-nixos-plasma5-x86_64-linux.iso)
+
+<div class="fragment">Danach nach <a href="https://nixos.org/manual/nixos/stable/index.html#ch-installation">der Anleitung</a> vorgehen</div>
+
+---
+
+## Und jetzt?
+
+<li class="left fragment">Auch mal ins <a href="https://nixos.org/manual/nixpkgs/stable/index.html">Nixpkgs Manual</a> schauen</li>
+<li class="left fragment"><a href="https://nix.dev/tutorials/ad-hoc-developer-environments">Nix shells</a> anschauen</li>
+<li class="left fragment">Spaß haben und bei Problemen <s>mich</s>die <a href="https://nixos.org/manual/nixos/stable/#preface">Community</a> fragen</li>
